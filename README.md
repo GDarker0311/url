@@ -2,6 +2,10 @@
 
 js url parser
 
+## example
+
+[here](http://vivaxy.github.io/url/example/)
+
 ## usage
 
 ```js
