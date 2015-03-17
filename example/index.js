@@ -12,10 +12,10 @@ var url = new Url(link);
 
 log('url.href: \n' + url.href);
 
-url.queryString('year', 2014);
+url.parameter('year', 2014);
 
 log('url.href: \n' + url.href);
 
-url.queryString('month', 6);
+url.parameter('month', 6);
 
 log('url.href: \n' + url.href);
