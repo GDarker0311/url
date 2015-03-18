@@ -20,42 +20,54 @@ var url = new Url();
 
 ```js
 // get query string by name
-url.queryString(key);
+url.parameter(key);
 
 // set query string by name, and update url properties
-url.queryString(key, value);
+url.parameter(key, value);
+
+// remove query string by name
+url.removeParameter(key);
+
+// to string, returns url.href
+url.toString();
+
+// get property
+url.get(property);
+
+// set property
+url.set(property, value);
 ```
 
-## properties
+## get and set properties
 
 ```js
 // href: fill link, like `https://www.test.com:8080/vivaxy/test/url?name=vivaxy&year=2014&month=6#some`
-url.href
+href
 
 // protocol: like `https:`
-url.protocol
+protocol
 
 // host: hostname + ':' + port, like `www.test.com:8080`
-url.host
+host
 
 // hostname: like `www.test.com`
-url.hostname
+hostname
 
 // port: like `8080`
-url.port
+port
 
 // pathname: full path from some host, like `/vivaxy/test/url`
-url.pathname
+pathname
 
 // search: queryString, like `?name=vivaxy&year=2014&month=6`
-url.search
+search
 
 // path: pathname + search, like `/vivaxy/test/url?name=vivaxy&year=2014&month=6`
-url.path
+path
 
 // query: search without `?`, like `name=vivaxy&year=2014&month=6`
-url.query
+query
 
 // hash: like `#some`
-url.hash
+hash
 ```
