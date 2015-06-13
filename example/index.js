@@ -65,3 +65,6 @@ log('> url.parameter(\'date\');', url.parameter('date'));
 url.set('port', '');
 log('> url.set(\'port\', \'\');', url);
 
+link = '/test/name';
+
+log('ie /test/name', new Url(link));
