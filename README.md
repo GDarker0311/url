@@ -19,23 +19,29 @@ var url = new Url();
 ## methods
 
 ```js
+// get all query strings
+url.parameter(); => {...}
+
+// set query strings
+url.parameter({...}); => `Url`
+
 // get query string by name
-url.parameter(key);
+url.parameter(key); => `string`
 
 // set query string by name, and update url properties
-url.parameter(key, value);
+url.parameter(key, value); => `Url`
 
 // remove query string by name
-url.removeParameter(key);
+url.removeParameter(key); => `Url`
 
 // to string, returns url.href
-url.toString();
+url.toString(); => `string`
 
 // get property
-url.get(property);
+url.get(property); => `string`
 
 // set property
-url.set(property, value);
+url.set(property, value); => `Url`
 ```
 
 ## get and set properties
