@@ -26,6 +26,12 @@ log('hash', url.get('hash'));
 url.parameter('year', 2014);
 log('> url.parameter(\'year\', 2014);', url);
 
+url.parameter();
+log('> url.parameter();', url.parameter());
+
+url.parameter({year: 2015});
+log('> url.parameter({year: 2015});', url);
+
 url.parameter('month', 6);
 log('> url.parameter(\'month\', 6);', url);
 

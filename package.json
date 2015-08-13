@@ -1,0 +1,23 @@
+{
+  "name": "url-module",
+  "version": "1.0.0",
+  "description": "js url parser",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivaxy/url.git"
+  },
+  "author": "vivaxy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vivaxy/url/issues"
+  },
+  "homepage": "https://github.com/vivaxy/url#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
