@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "js url parser",
   "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vivaxy/url.git"
@@ -19,5 +16,8 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "babel": "^5.8.23"
   }
 }

@@ -4,7 +4,7 @@ js url parser
 
 ## example
 
-[here](http://vivaxy.github.io/url/example/)
+[here](http://vivaxy.github.io/url/demo/)
 
 ## usage
 
@@ -77,3 +77,9 @@ query
 // hash: like `#some`
 hash
 ```
+
+## develop
+
+1. npm i
+
+2. make
