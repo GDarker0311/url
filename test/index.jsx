@@ -3,7 +3,7 @@
  * @author vivaxy
  */
 import Url from '../src/url.js';
-var assert = chai.assert;
+let assert = chai.assert;
 
 describe('new Url()', function () {
     it('should return link', function () {
