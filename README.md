@@ -6,10 +6,6 @@ js url parser
 
 [demo](http://vivaxy.github.io/url/demo/)
 
-## test
-
-[test](http://vivaxy.github.io/url/test/)
-
 ## usage
 
 ```js
