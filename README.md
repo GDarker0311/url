@@ -2,9 +2,13 @@
 
 js url parser
 
-## example
+## demo
 
-[here](http://vivaxy.github.io/url/demo/)
+[demo](http://vivaxy.github.io/url/demo/)
+
+## test
+
+[test](http://vivaxy.github.io/url/test/)
 
 ## usage
 
