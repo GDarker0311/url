@@ -2,7 +2,8 @@
  * @since 150316 11:42
  * @author vivaxy
  */
-import Url from '../src/url.js';
+
+import Url from 'index.js';
 
 let log = function (key, value) {
     console.log(key, value.toString());

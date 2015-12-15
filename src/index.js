@@ -5,81 +5,99 @@
 'use strict';
 
 /**
- * usage:
- *
+ * usage: [URL](https://developer.mozilla.org/en-US/docs/Web/API/Window/URL)
+ * 
+ * reference:
+ * 
+ * - [mozilla URL](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+ * - [mozilla URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+ * - [mozilla Window URL](https://developer.mozilla.org/en-US/docs/Web/API/Window/URL)
+ * - [webshim url](https://afarkas.github.io/webshim/demos/#url)
+ * - [inexorabletash url](https://github.com/inexorabletash/polyfill/blob/master/url.js)
+ * - [WebReflection url-search-params](https://github.com/WebReflection/url-search-params/blob/master/src/url-search-params.js)
+ * - [arv url](https://gist.github.com/arv/1384398)
+ * - [Polymer url](https://github.com/Polymer/URL/blob/master/url.js)
+ * 
  * // parse some link
- * var url = new Url(link);
+ * var url = new URL(link, base);
  *
  * // parse current location link
- * var url = new Url();
+ * var url = new URL();
  *
  * methods:
- *
- * // get query string by name
- * url.parameter(key);
- *
- * // set query string by name, and update url properties
- * url.parameter(key, value);
- *
- * // get all query string
- * url.parameter();
- *
- * // set all query string by kv pairs
- * url.parameter({});
- *
- * // remove query string by name
- * url.removeParameter(key);
  *
  * // to string, returns url.href
  * url.toString();
  *
- * // get property
- * url.get(property);
- *
- * // set property
- * url.set(property, value);
- *
- * get and set properties:
- *
+ * // Is a DOMString containing the whole URL.
  * // href: fill link, like `https://www.test.com:8080/vivaxy/test/url?name=vivaxy&year=2014&month=6#some`
- * href
+ * url.href
  *
+ * // Is a DOMString containing the protocol scheme of the URL, including the final ':'.
  * // protocol: like `https:`
- * protocol
+ * url.protocol
  *
+ * // Is a DOMString containing the host, that is the hostname, a ':', and the port of the URL.
  * // host: hostname + ':' + port, like `www.test.com:8080`
- * host
+ * url.host
  *
+ * // Is a DOMString containing the domain of the URL.
  * // hostname: like `www.test.com`
- * hostname
+ * url.hostname
  *
+ * // Is a DOMString containing the port number of the URL.
  * // port: like `8080`
- * port
+ * url.port
  *
+ * // Is a DOMString containing an initial '/' followed by the path of the URL.
  * // pathname: full path from some host, like `/vivaxy/test/url`
- * pathname
+ * url.pathname
  *
+ * // Is a DOMString containing a '?' followed by the parameters of the URL.
  * // search: queryString, like `?name=vivaxy&year=2014&month=6`
- * search
+ * url.search
  *
- * // path: pathname + search, like `/vivaxy/test/url?name=vivaxy&year=2014&month=6`
- * path
- *
- * // query: search without `?`, like `name=vivaxy&year=2014&month=6`
- * query
- *
+ * // Is a DOMString containing a '#' followed by the fragment identifier of the URL.
  * // hash: like `#some`
- * hash
+ * url.hash
  *
+ * // Is a DOMString containing the username specified before the domain name.
+ * // username: todo
+ * url.username
+ *
+ * // Is a DOMString containing the password specified before the domain name.
+ * // password: todo
+ * url.password
+ *
+ * // readonly Returns a DOMString containing the origin of the URL, that is its scheme, its domain and its port.
+ * // origin: like: `https://developer.mozilla.org:443`
+ * url.origin
+ *
+ * // Returns a URLSearchParams object allowing to access the GET query arguments contained in the URL.
+ * // searchParams: see [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+ * url.searchParams
+ *
+ * static methods:
+ *
+ * // Returns a DOMString containing a unique blob URL, that is a URL with blob: as its scheme, followed by an opaque string uniquely identifying the object in the browser.
+ * URL.createObjectURL()
+ *
+ * // Revokes an object URL previously created using URL.createObjectURL().
+ * URL.revokeObjectURL()
  */
 
 /**
  *
- * @param href
+ * @param link
+ * @param base
  * @constructor
  */
-class Url {
-    constructor(href) {
+
+class URL {
+    constructor(link, base) {
+        if (!link) {
+            throw new Error('invalid arguments');
+        }
         this._href = href || location.href;
         this._parameters = {};
         this._parse();
@@ -88,8 +106,8 @@ class Url {
     }
 
     /**
-     * parse url string to url object, and save to Url
-     * @returns {Url}
+     * parse url string to url object, and save to URL
+     * @returns {URL}
      * @private
      */
     _parse() {
@@ -126,7 +144,7 @@ class Url {
 
     /**
      * parse query string to query object, and save to _parameters
-     * @returns {Url}
+     * @returns {URL}
      * @private
      */
     _parseQuery() {
@@ -145,7 +163,7 @@ class Url {
 
     /**
      * format parameters to query string, and update the url object
-     * @returns {Url}
+     * @returns {URL}
      * @private
      */
     _formatQuery() {
@@ -200,7 +218,7 @@ class Url {
                 this._formatQuery();
                 return this;
             default:
-                throw new Error('Url: type of first argument is not `undefined`, `string` or `object`');
+                throw new Error('URL: type of first argument is not `undefined`, `string` or `object`');
                 return this;
         }
     }
@@ -208,7 +226,7 @@ class Url {
     /**
      * remove parameter in query string
      * @param key
-     * @returns {Url}
+     * @returns {URL}
      */
     removeParameter(key) {
         delete this._parameters[key];
@@ -237,7 +255,7 @@ class Url {
      * set property
      * @param prop
      * @param value
-     * @returns {Url}
+     * @returns {URL}
      */
     set(prop, value) {
 
@@ -253,7 +271,7 @@ class Url {
          */
         switch (prop) {
             case 'parameters':
-                throw new Error('Url: use `parameter` instead');
+                throw new Error('URL: use `parameter` instead');
                 break;
             case 'query':
                 this._path = this._pathname + (value === '' ? '' : '?' + this._query);
@@ -262,7 +280,7 @@ class Url {
                 if (value === '' || value.indexOf('?') === 0) {
                     this._path = this._pathname + value;
                 } else {
-                    throw new Error('Url: `search` must starts with `?`');
+                    throw new Error('URL: `search` must starts with `?`');
                 }
                 break;
             case 'pathname':
@@ -276,11 +294,11 @@ class Url {
                 break;
             case 'hash':
                 if (value !== '' && value.indexOf('#') !== 0) {
-                    throw new Error('Url: `hash` must starts with `#`');
+                    throw new Error('URL: `hash` must starts with `#`');
                 }
                 break;
             default:
-                throw new Error('Url: `' + prop + '` cannot be set to url');
+                throw new Error('URL: `' + prop + '` cannot be set to url');
                 break;
         }
 
@@ -293,4 +311,4 @@ class Url {
     }
 }
 
-export default Url;
+export default URL;

@@ -2,7 +2,8 @@
  * @since 15-08-13 11:38
  * @author vivaxy
  */
-import Url from '../src/url.js';
+import Url from './index.js';
+
 let assert = chai.assert;
 
 describe('new Url()', function () {

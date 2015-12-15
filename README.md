@@ -2,23 +2,23 @@
 
 js url parser
 
-## demo
+# demo
 
 [demo](http://vivaxy.github.io/url/demo/)
 
-## usage
+# usage
 
 ```js
 // parse some link
-var url = new Url(link);
+var url = new URL(link);
 
 // parse current location link
-var url = new Url();
+var rul = new URL();
 ```
 
-## methods
+# methods
 
-```js
+```
 // get all query strings
 url.parameter(); => {...}
 
@@ -46,7 +46,7 @@ url.set(property, value); => `Url`
 
 ## get and set properties
 
-```js
+```
 // href: fill link, like `https://www.test.com:8080/vivaxy/test/url?name=vivaxy&year=2014&month=6#some`
 href
 
@@ -78,8 +78,14 @@ query
 hash
 ```
 
-## develop
+# develop
 
 1. npm i
 
-2. make
+2. npm run build
+
+run debug server `> npm run server`
+
+# changelog
+
+1.0.0 support [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL)
