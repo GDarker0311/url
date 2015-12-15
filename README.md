@@ -1,3 +1,9 @@
+# deprecated
+
+use [polyfill](https://github.com/inexorabletash/polyfill/blob/master/url.js) instead
+
+see [webshim](https://afarkas.github.io/webshim/demos/#url)
+
 # url
 
 js url parser
